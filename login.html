@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel='stylesheet' type='text/css' href='style.css'>
+    <style>
+        body {
+            background-color: #e3f2fd; /* Light blue hospital-like theme */
+        }
+        .card {
+            border-radius: 15px;
+            background: white;
+        }
+        .password-container {
+            position: relative;
+        }
+        .password-container input {
+            padding-right: 40px; /* Space for the icon */
+        }
+        .password-container .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #6c757d;
+        }
+        .heading {
+            text-transform: uppercase;
+            font-weight: bold;
+            text-align: center;
+        }
+        .main-heading {
+            font-size: 2rem;
+            color: #0d6efd;
+            margin-bottom: 10px;
+        }
+        .sub-heading {
+            font-size: 1.5rem;
+            color: #0d6efd;
+        }
+    </style>
+</head>
+<body class="d-flex justify-content-center align-items-center vh-100">
+    <div class='container'>
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-4">
+                <div class="card shadow p-4">
+                    <h1 class="heading main-heading">Health Prediction</h1>
+                    <h2 class="heading sub-heading">Login</h2>
+                    <form method='POST'>
+                        <div class="mb-3">
+                            <input type='email' name='email' class="form-control" placeholder='Email' required>
+                        </div>
+                        <div class="mb-3 password-container">
+                            <input type='password' id='password' name='password' class="form-control" placeholder='Password' required>
+                            <i class="fa fa-eye toggle-password" onclick="togglePassword('password', this)"></i>
+                        </div>
+                        <button type='submit' class="btn btn-primary w-100">Login</button>
+                    </form>
+                    <p class="text-center mt-3">Don't have an account? <a href='/signup' class="text-primary">Sign up</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function togglePassword(fieldId, icon) {
+            var field = document.getElementById(fieldId);
+            if (field.type === "password") {
+                field.type = "text";
+                icon.classList.remove("fa-eye");
+                icon.classList.add("fa-eye-slash");
+            } else {
+                field.type = "password";
+                icon.classList.remove("fa-eye-slash");
+                icon.classList.add("fa-eye");
+            }
+        }
+    </script>
+</body>
+</html>
